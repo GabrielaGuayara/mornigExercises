@@ -4,6 +4,58 @@ let dishes = [
                 ["Pizza", "Pasta", "CurryChicken"]
 ]
 
+//MY FUNCTION
+function convertArray(dishes){
+
+    let newArr = [];
+    let arrP = [];
+    let arrS = [];
+    let arrOther = [];
+
+
+for(let i=0; i< dishes.length; i++){
+
+    for(let j = 0; j < dishes[i].length; j++){
+        //can also reference with dishes[i][j][0]
+        let firstLetter = dishes[i][j][0];
+
+        if(firstLetter === "P"){
+           arrP.push(dishes[i][j])
+        //    console.log(arrP)
+        }
+
+        else if(firstLetter === "S"){
+            arrS.push(dishes[i][j])
+            // console.log(arrS) 
+        }
+        else{
+            arrOther.push(dishes[i][j])
+        }
+
+
+  }
+}
+let obj1 ={}
+let obj2 ={}
+let obj3 ={}
+obj1.P = arrP
+obj2.S = arrS
+obj3.Others = arrOther
+
+newArr.push(obj1, obj2, obj3)
+// newArr.push(arrP, arrS, arrOther)
+return newArr;
+}
+
+console.log(convertArray(dishes))
+
+
+
+
+
+
+
+
 /**
  * Objetive: Grap dishes bu letters s and o, if not threw in others
  * Input: arr of arrays with strings [[str]]
@@ -37,110 +89,69 @@ let dishes = [
  */
 
 
-function orderDishes(dishes){
+// function orderDishes(dishes){
 
-    if(!dishes.length) return [];
+//     if(!dishes.length) return [];
 
-    const sortDishes = [];
-    const dishesWithP = {
-        startWithP: []
-    }
-    const dishesWithS = {
-        startWithS: []
-    }
-    const otherDishes = {
-        Others: []
-    };
+//     const sortDishes = [];
+//     const dishesWithP = {
+//         startWithP: []
+//     }
+//     const dishesWithS = {
+//         startWithS: []
+//     }
+//     const otherDishes = {
+//         Others: []
+//     };
 
-    for(let i =0; i< dishes.length; i++){ //Iterate y axis
+//     for(let i =0; i< dishes.length; i++){ //Iterate y axis
 
-        for (let j = 0; j < dishes[i].length; j++){ //Iterate x axis
+//         for (let j = 0; j < dishes[i].length; j++){ //Iterate x axis
 
-            //get word, then get the lteer, check if it equeals letter we are looking for *
-            const firstLetter = dishes[i][j][0]
-            if(firstLetter === 'S'){
-                dishesWithS.startWithS.push(dishes[i][j])
-            }else if(firstLetter === 'P'){
-                dishesWithP.startWithP.push(dishes[i][j])
-            }else{
-                otherDishes.Others.push(dishes[i][j])
-            }
-        }
-    }
-
-    sortDishes.push(dishesWithP, dishesWithS, otherDishes);
-    return sortDishes;
-}
-
-
-const sorted = orderDishes(dishes);
-console.log(sorted)
-
-
-function sortDishes(dishes){
-    const dishCategories = [];
-
-    for( let row = 0; row < dishes.length; row++){
-        for(let col = 0; col < dishes[row][col]; col++){
-            const firstLetter = dishes[row][col][0]
-            if(firstLetter in dishCategories){
-                //If the first letter a KEY in my object
-                    //If it is add value to key
-                    dishCategories[firstLetter].push(dishes[row][col])
-            }
-            else{
-                    dishCategories[firstLetter] = [dishes[row][col]]
-            }
-        }
-    }
-
-    return dishCategories;
-}
-
-console.log(sortDishes(dishes))
-// function convertArray(dishes){
-
-//     let newArr = [];
-//     let arrP = [];
-//     let arrS = [];
-//     let arrOther = [];
-
-
-// for(let i=0; i< dishes.length; i++){
-
-//     for(let j = 0; j < dishes[i].length; j++){
-//         //can also reference with dishes[i][j][0]
-//         let firstLetter = dishes[i][j][0];
-
-//         if(firstLetter === "P"){
-//            arrP.push(dishes[i][j])
-//         //    console.log(arrP)
+//             //get word, then get the lteer, check if it equeals letter we are looking for *
+//             const firstLetter = dishes[i][j][0]
+//             if(firstLetter === 'S'){
+//                 dishesWithS.startWithS.push(dishes[i][j])
+//             }else if(firstLetter === 'P'){
+//                 dishesWithP.startWithP.push(dishes[i][j])
+//             }else{
+//                 otherDishes.Others.push(dishes[i][j])
+//             }
 //         }
+//     }
 
-//         else if(firstLetter === "S"){
-//             arrS.push(dishes[i][j])
-//             // console.log(arrS) 
-//         }
-//         else{
-//             arrOther.push(dishes[i][j])
-//         }
-
-
-//   }
-// }
-// let obj1 ={}
-// let obj2 ={}
-// let obj3 ={}
-// obj1.P = arrP
-// obj2.S = arrS
-// obj3.Others = arrOther
-
-// newArr.push(obj1, obj2, obj3)
-// // newArr.push(arrP, arrS, arrOther)
-// return newArr;
+//     sortDishes.push(dishesWithP, dishesWithS, otherDishes);
+//     return sortDishes;
 // }
 
-// console.log(convertArray(dishes))
+
+// const sorted = orderDishes(dishes);
+// console.log(sorted)
+
+
+// function sortDishes(dishes){
+//     const dishCategories = [];
+
+//     for( let row = 0; row < dishes.length; row++){
+//         for(let col = 0; col < dishes[row][col]; col++){
+//             const firstLetter = dishes[row][col][0]
+//             if(firstLetter in dishCategories){
+//                 //If the first letter a KEY in my object
+//                     //If it is add value to key
+//                     dishCategories[firstLetter].push(dishes[row][col])
+//             }
+//             else{
+//                     dishCategories[firstLetter] = [dishes[row][col]]
+//             }
+//         }
+//     }
+
+//     return dishCategories;
+// }
+
+// console.log(sortDishes(dishes))
+
+
 
 // const newObject = {
 
